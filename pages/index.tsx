@@ -1,7 +1,9 @@
+import Landing from '../components/Landing/Landing'
+
 export default function Home() {
   return (
-    <div>
-      <h1>hello</h1>
+    <div className="min-h-screen bg-neutral-900">
+      <Landing />
     </div>
   )
 }
