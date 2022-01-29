@@ -36,7 +36,7 @@ const Header: NextPage<HeaderProps> = ({ headerData }) => {
           @{headerData.login}
         </a>
       </div>
-      <div className=" my-4 flex w-80 items-center justify-around text-slate-400">
+      <div className="my-4 flex w-80 items-center justify-around text-slate-400">
         <Image src={calendar} alt="calender icon" height={20} width={20} />
         <p className="text-base">
           <Moment date={headerData.createdAt} />
