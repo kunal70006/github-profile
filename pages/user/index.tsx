@@ -1,11 +1,36 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable array-callback-return */
-// import { useRouter } from 'next/router'
+import { useRouter } from 'next/router'
 import Header from '../../components/Header/Header'
 import Repos from '../../components/Repos/Repos'
+import Charts from '../../components/Charts/Charts'
+import GhPolyglot from 'gh-polyglot'
+import { useEffect, useState } from 'react'
 import { GetServerSideProps } from 'next'
 import { RepoDataProps } from '../../Utils/Types/RepoProps'
+
 const Index = ({ data, repoData }: any) => {
+  const [langData, setLangData] = useState<any>()
+  const router = useRouter()
+  const { id } = router.query
+
+  useEffect(() => {
+    const getLangData = () => {
+      const me = new GhPolyglot(`${id}`)
+      try {
+        me.userStats((err: any, stats: any) => {
+          if (err) {
+            console.log(err)
+          }
+          setLangData(stats)
+        })
+      } catch (err) {
+        console.log(err)
+      }
+    }
+
+    getLangData()
+  }, [id])
   // console.log(repoData)
   let repoArr: {
     name: string
@@ -25,7 +50,7 @@ const Index = ({ data, repoData }: any) => {
     login: data?.login,
     repos: data?.public_repos,
   }
-  repoData.map((repo: RepoDataProps) => {
+  repoData?.map((repo: RepoDataProps) => {
     let tempObj = {
       name: repo?.name,
       url: repo?.html_url,
@@ -41,6 +66,7 @@ const Index = ({ data, repoData }: any) => {
   return (
     <div className="flex h-screen flex-col items-center px-60">
       <Header headerData={headerData} />
+      <Charts langData={langData} repoData={repoArr} />
       <Repos repoData={repoArr} />
     </div>
   )
