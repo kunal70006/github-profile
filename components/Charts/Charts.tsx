@@ -39,7 +39,7 @@ const Charts: NextPage<ChartProps> = ({ langData, repoData }) => {
   }
 
   return (
-    <div className="-mt-24 flex w-full justify-around">
+    <section className="-mt-24 flex w-full justify-around">
       <div className=" flex flex-col rounded-lg bg-white px-12 py-8  shadow-lg">
         <h1 className="text-3xl underline decoration-slate-400 decoration-dashed">
           Top Languages
@@ -56,7 +56,7 @@ const Charts: NextPage<ChartProps> = ({ langData, repoData }) => {
           <Doughnut data={barData} />
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 

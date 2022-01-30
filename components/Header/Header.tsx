@@ -9,7 +9,7 @@ const Header: NextPage<HeaderProps> = ({ headerData }) => {
   //   console.log(headerData)
 
   return (
-    <div className="h-fit-content flex w-screen flex-col items-center bg-neutral-900 font-medium leading-relaxed tracking-wider text-slate-200">
+    <header className="h-fit-content flex w-screen flex-col items-center bg-neutral-900 font-medium leading-relaxed tracking-wider text-slate-200">
       <div
         className="mt-20 flex items-center justify-center border-8 border-indigo-500"
         style={{ borderRadius: '50%' }}
@@ -62,7 +62,7 @@ const Header: NextPage<HeaderProps> = ({ headerData }) => {
           </p>
         </div>
       </div>
-    </div>
+    </header>
   )
 }
 

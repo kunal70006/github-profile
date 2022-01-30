@@ -5,7 +5,7 @@ import { Menu, Transition } from '@headlessui/react'
 import { RepoProps, RepoStateProps } from '../../Utils/Types/RepoProps'
 import FlipMove from 'react-flip-move'
 import Image from 'next/image'
-import repoIcon from '../../public/repo.png'
+import github from '../../public/github.png'
 import star from '../../public/star.png'
 import forked from '../../public/forked.png'
 
@@ -36,7 +36,7 @@ const Repos: NextPage<RepoProps> = ({ repoData }) => {
   }, [selectValue, repoData])
 
   return (
-    <div className="my-20  flex w-full flex-col items-start font-medium leading-relaxed tracking-wider text-slate-800">
+    <section className="my-20  flex w-full flex-col items-start font-medium leading-relaxed tracking-wider text-slate-800">
       <div className="flex items-baseline justify-between">
         <h1 className="text-3xl underline decoration-slate-400 decoration-dashed">
           Top Repos
@@ -83,7 +83,7 @@ const Repos: NextPage<RepoProps> = ({ repoData }) => {
           </Menu>
         </div>
       </div>
-      <FlipMove className=" mt-4 flex flex-wrap justify-center">
+      <FlipMove className="mt-4 flex flex-wrap justify-center">
         {topRepos &&
           topRepos.map((repo: RepoStateProps) => (
             <a
@@ -94,12 +94,7 @@ const Repos: NextPage<RepoProps> = ({ repoData }) => {
             >
               <div className="mx-4 my-4 flex h-56 w-80 flex-col justify-between rounded-lg p-6 shadow-md  transition duration-200 ease-in hover:shadow-xl">
                 <h1 className="mt-4 flex font-mono text-base font-semibold">
-                  <Image
-                    src={repoIcon}
-                    alt="repo icon"
-                    height={16}
-                    width={24}
-                  />
+                  <Image src={github} alt="repo icon" height={16} width={24} />
                   <span className="ml-4">{nameFilter(repo.name)}</span>
                 </h1>
                 <p className=" -mt-2 font-normal">{repo.desc}</p>
@@ -124,7 +119,7 @@ const Repos: NextPage<RepoProps> = ({ repoData }) => {
             </a>
           ))}
       </FlipMove>
-    </div>
+    </section>
   )
 }
 

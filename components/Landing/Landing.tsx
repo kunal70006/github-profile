@@ -33,7 +33,7 @@ const Landing = () => {
           <div>
             <input
               type="text"
-              className="rounded-lg bg-neutral-600 px-4 py-2 text-center text-4xl tracking-wider text-indigo-500 outline-none"
+              className="flex h-20 items-center rounded-lg bg-neutral-600 px-4 py-2 text-center text-4xl tracking-wider text-indigo-500 outline-none"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
