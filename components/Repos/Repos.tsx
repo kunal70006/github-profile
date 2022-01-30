@@ -27,7 +27,7 @@ const Repos: NextPage<RepoProps> = ({ repoData }) => {
   }
 
   useEffect(() => {
-    const getTopRepos = (type: 'stars') => {
+    const getTopRepos = (type: any) => {
       const LIMIT = 8
       const sorted = repoData.sort((a, b) => b[type] - a[type]).slice(0, LIMIT)
       setTopRepos(sorted)

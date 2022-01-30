@@ -5,7 +5,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint ./components/** ./pages/** -c .eslintrc --ext ts,tsx,js,jsx --color",
-    "format": "prettier --write 'components/**/*.{ts,tsx,scss,css,json}' 'pages/**/*.{ts,tsx,scss,css,json}'",
+    "format": "prettier --write \"./components/**/*.{ts,tsx,scss,css,json}\" \"./pages/**/*.{ts,tsx,scss,css,json}\"",
     "isready": "yarn format && yarn lint && yarn build"
   },
   "dependencies": {
